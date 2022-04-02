@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+        {% if user %}
+            <a class="waves-effect waves-light btn jumbotron-btn white blue-text header-blue" href="{{ url_for('dashboard', username=user.username) }}"><strong>Dashboard</strong></a>
+            <a class="waves-effect waves-light btn jumbotron-btn white blue-text header-blue" href="{{ url_for('profile', username=user.username) }}"><strong>Profile</strong></a>
+        {% else %}
+        <a class="waves-effect waves-light btn jumbotron-btn white header-blue" href="{{ url_for('signup') }}"><strong>Sign up</strong></a>
+        <a class="waves-effect waves-light btn jumbotron-btn white header-blue" href="{{ url_for('login') }}"><strong>Log In</strong></a>
+        {% endif %}
+    </div>
